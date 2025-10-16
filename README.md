@@ -28,3 +28,8 @@
 * **What I Learned:** I learned how to combine multiple tools, nodes, and conditional routing to build a complete agent. The agent can now decide whether to call a tool (and which one to call) or respond to the user directly, looping back to the LLM after a tool is used to generate a final, user-facing answer.
 * **My Code Tweak:** I built an agent with two tools: a `multiply` tool for math and a `search_tavily` tool for web searches. The graph's router checks for tool calls in the LLM's response and directs the flow accordingly. I tested the agent with two different inputs to confirm that it correctly used a tool for one question and answered directly for the other.
 * **Source File:** [lesson_6.ipynb](my_learnings/module_1/lesson_6.ipynb)
+
+### Lesson 7: Agent with Memory
+* **What I Learned:** I learned the concept of adding memory to a LangGraph agent by using a checkpointer, which allows the graph's state to be persisted. The goal was to use a `SqliteSaver` and a `thread_id` to enable a multi-turn conversation where the agent remembers previous interactions.
+* **My Code Tweak & Issue:** I attempted to implement an agent with memory using `SqliteSaver`. However, the code failed with a `ModuleNotFoundError: No module named 'langgraph.checkpoint.sqlite'`, which indicates that the installed version of the `langgraph` library is outdated and incompatible with the course material.
+* **Source File:** [lesson_7.ipynb](my_learnings/module_1/lesson_7.ipynb)
