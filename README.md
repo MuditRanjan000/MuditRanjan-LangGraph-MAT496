@@ -18,3 +18,8 @@
 * **What I Learned:** I learned how to create a multi-step chain in LangGraph by adding multiple nodes and connecting them in a sequence. This involved updating the `GraphState` to hold intermediate values and using `workflow.add_edge()` to define the data flow from one node to the next.
 * **My Code Tweak:** I built a two-step graph. The first node ("rewriter") rephrases the user's question for clarity, and the second node ("llm") answers the rewritten question. This demonstrates a simple sequential chain where the output of one step is used as the input for the next.
 * **Source File:** [lesson_4.ipynb](my_learnings/module_1/lesson_4.ipynb)
+
+### Lesson 5: Router
+* **What I Learned:** I learned how to add conditional logic to a graph using a router. This involved creating a conditional edge with `add_conditional_edges()`, which calls a function to inspect the graph's state and decide which node to execute next. This is the key to building agents that can use tools and create cycles.
+* **My Code Tweak:** I built a simple agent that can use a `multiply` tool. My graph has three main parts: an LLM node that can either respond or use a tool, a tool execution node, and a router function that checks if a tool was called. I also learned to wrap tool outputs in a `ToolMessage` to correctly pass the results back into the graph's state.
+* **Source File:** [lesson_5.ipynb](my_learnings/module_1/lesson_5.ipynb)
