@@ -23,3 +23,8 @@
 * **What I Learned:** I learned how to add conditional logic to a graph using a router. This involved creating a conditional edge with `add_conditional_edges()`, which calls a function to inspect the graph's state and decide which node to execute next. This is the key to building agents that can use tools and create cycles.
 * **My Code Tweak:** I built a simple agent that can use a `multiply` tool. My graph has three main parts: an LLM node that can either respond or use a tool, a tool execution node, and a router function that checks if a tool was called. I also learned to wrap tool outputs in a `ToolMessage` to correctly pass the results back into the graph's state.
 * **Source File:** [lesson_5.ipynb](my_learnings/module_1/lesson_5.ipynb)
+
+### Lesson 6: Agent
+* **What I Learned:** I learned how to combine multiple tools, nodes, and conditional routing to build a complete agent. The agent can now decide whether to call a tool (and which one to call) or respond to the user directly, looping back to the LLM after a tool is used to generate a final, user-facing answer.
+* **My Code Tweak:** I built an agent with two tools: a `multiply` tool for math and a `search_tavily` tool for web searches. The graph's router checks for tool calls in the LLM's response and directs the flow accordingly. I tested the agent with two different inputs to confirm that it correctly used a tool for one question and answered directly for the other.
+* **Source File:** [lesson_6.ipynb](my_learnings/module_1/lesson_6.ipynb)
