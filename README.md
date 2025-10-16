@@ -7,4 +7,4 @@
 ### Lesson 2: Simple Graph
 * **What I Learned:** I learned how to build a basic graph with a single step. This involved defining a `StateGraph`, creating a state dictionary with `TypedDict`, adding a Python function as a node to perform an action (calling an LLM), and using `START` and `END` to define the graph's flow.
 * **My Code Tweak:** I created a `lesson_2.ipynb` notebook and implemented a simple graph that takes a user's question, calls GPT-4o to get an answer, and stores the result in the graph's state. I successfully compiled and ran the graph to get a response.
-* **Source File:** `my_learnings/module_1/lesson_2.ipynb`
+* **Source File:** [lesson_2.ipynb](my_learnings/module_1/lesson_2.ipynb)
