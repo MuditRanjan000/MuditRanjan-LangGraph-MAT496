@@ -8,3 +8,8 @@
 * **What I Learned:** I learned how to build a basic graph with a single step. This involved defining a `StateGraph`, creating a state dictionary with `TypedDict`, adding a Python function as a node to perform an action (calling an LLM), and using `START` and `END` to define the graph's flow.
 * **My Code Tweak:** I created a `lesson_2.ipynb` notebook and implemented a simple graph that takes a user's question, calls GPT-4o to get an answer, and stores the result in the graph's state. I successfully compiled and ran the graph to get a response.
 * **Source File:** [lesson_2.ipynb](my_learnings/module_1/lesson_2.ipynb)
+
+### Lesson 3: LangSmith Studio
+* **What I Learned:** I learned how to use LangSmith Studio to visualize and debug my local LangGraph applications. This involved starting the `langgraph dev` server and connecting to it through the Studio UI in the browser, which provides a real-time, visual trace of the graph's execution.
+* **My Code Tweak:** This was a UI-based lesson. I started the local development server and used the Studio to run and inspect the simple graph I built in the previous lesson.
+* **Source File:** [lesson_2.ipynb](my_learnings/module_1/lesson_2.ipynb)![alt text](image.png)
