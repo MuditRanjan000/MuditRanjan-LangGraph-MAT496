@@ -48,3 +48,8 @@
 * **What I Learned:** I learned how to use state reducers to manage how the graph's state is updated. By using `Annotated` with an operator like `operator.add`, I can make the state accumulate values (like appending messages to a list) rather than just overwriting them.
 * **My Code Tweak:** I defined the `messages` field in my `GraphState` as a reducer. I then built a simple graph that I invoked twice in a row, passing the output state of the first run as the input to the second. This successfully demonstrated how the message list grew with each run, proving the reducer was working.
 * **Source File:** [lesson_2.ipynb](my_learnings/module_2/lesson_2.ipynb)
+
+### Lesson 3: Multiple Schemas
+* **What I Learned:** I learned how to create a graph that can handle different types of tasks by using multiple state schemas and a router. By defining a `Union` of different `TypedDict` schemas, the graph's state can adapt based on the input.
+* **My Code Tweak:** I built a graph that can either solve simple math problems or answer general questions. I created two states, `MathState` and `GeneralState`, and a router function that checks the user's question for math operators. The graph successfully routed to the correct node based on the input, demonstrating how to handle multiple schemas.
+* **Source File:** [lesson_3.ipynb](my_learnings/module_2/lesson_3.ipynb)
