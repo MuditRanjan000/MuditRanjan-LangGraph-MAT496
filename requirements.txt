@@ -1,13 +1,14 @@
-# Pinned versions for stability
-langchain==0.1.16
-langsmith==0.1.17
-langchain-core==0.1.42
-langchain-community==0.0.32
-langchain-openai==0.1.3
-
-# Course-specific packages
 langgraph
-python-dotenv
-jupyterlab
-ipykernel
+langgraph-prebuilt
+langgraph-sdk
+langgraph-checkpoint-sqlite
+langsmith
+langchain-community
+langchain-core
+langchain-openai
+notebook
+langchain-tavily
+wikipedia
+trustcall
 tavily-python
+langgraph-cli[inmem]
