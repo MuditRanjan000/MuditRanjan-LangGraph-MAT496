@@ -1,4 +1,5 @@
 ### MODULE 1
+
 ### Lesson 1: Motivation
 * **What I Learned:** This was an introductory lesson covering the core motivation for LangGraph. It explained why managing state and creating cycles (loops) is crucial for building complex agents, and how LangGraph is designed to solve these challenges where standard chains might fall short.
 * **My Code Tweak:** No coding was done in this lesson as it was purely conceptual.
@@ -33,3 +34,12 @@
 * **What I Learned:** I learned the concept of adding memory to a LangGraph agent by using a checkpointer, which allows the graph's state to be persisted. The goal was to use a `SqliteSaver` and a `thread_id` to enable a multi-turn conversation where the agent remembers previous interactions.
 * **My Code Tweak & Issue:** I attempted to implement an agent with memory using `SqliteSaver`. However, the code failed with a `ModuleNotFoundError: No module named 'langgraph.checkpoint.sqlite'`, which indicates that the installed version of the `langgraph` library is outdated and incompatible with the course material.
 * **Source File:** [lesson_7.ipynb](my_learnings/module_1/lesson_7.ipynb)
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+### MODULE 2
+
+### Lesson 1: State Schema
+* **What I Learned:** I learned that the `StateGraph` requires a clearly defined state schema, which I created using Python's `TypedDict`. This schema is the central data structure that gets passed between all the nodes in the graph.
+* **My Code Tweak:** I created a `GraphState` with `question`, `documents`, and `answer` fields. I then built a two-step RAG chain where the first node (`retriever`) filled the `documents` field, and the second node (`generator`) used that data to fill the `answer` field. This showed how the state is updated as it moves through the graph.
+* **Source File:** [lesson_1.ipynb](my_learnings/module_2/lesson_1.ipynb)
