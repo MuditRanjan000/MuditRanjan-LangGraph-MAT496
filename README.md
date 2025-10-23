@@ -63,3 +63,8 @@
 * **What I Learned:** I learned the concept of building a stateful chatbot that manages a long conversation history by summarizing it. This involved using a checkpointer for memory and a conditional router that triggers a summarization node when the conversation exceeds a certain length.
 * **My Code Tweak & Issue:** I attempted to build the summarization chatbot. However, running the code locally resulted in a persistent "Kernel Died" error. This confirms the local environment is unstable and unable to run the course notebooks for this module.
 * **Source File:** All work for this module was attempted in VS Code.
+
+### Lesson 6: Chatbot with Summarization and External Memory
+* **What I Learned:** I learned how to build a chatbot that manages its conversation history in an external store, separate from the graph's state. I also learned how to combine this with a summarization step, where a router checks the length of the external memory and triggers a node to summarize the history and update the external store.
+* **My Code Tweak:** I implemented a graph where the state only holds the current input and a session ID. The nodes are responsible for fetching from, and saving to, an external (simulated) memory store. A router function checks the length of this external history and, when it exceeds a threshold, calls a summarization node that replaces the long history with a concise summary.
+* **Source File:** [lesson_6.ipynb](my_learnings/module_2/lesson_6.ipynb)
