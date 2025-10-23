@@ -43,3 +43,8 @@
 * **What I Learned:** I learned that the `StateGraph` requires a clearly defined state schema, which I created using Python's `TypedDict`. This schema is the central data structure that gets passed between all the nodes in the graph.
 * **My Code Tweak:** I created a `GraphState` with `question`, `documents`, and `answer` fields. I then built a two-step RAG chain where the first node (`retriever`) filled the `documents` field, and the second node (`generator`) used that data to fill the `answer` field. This showed how the state is updated as it moves through the graph.
 * **Source File:** [lesson_1.ipynb](my_learnings/module_2/lesson_1.ipynb)
+
+### Lesson 2: State Reducers
+* **What I Learned:** I learned how to use state reducers to manage how the graph's state is updated. By using `Annotated` with an operator like `operator.add`, I can make the state accumulate values (like appending messages to a list) rather than just overwriting them.
+* **My Code Tweak:** I defined the `messages` field in my `GraphState` as a reducer. I then built a simple graph that I invoked twice in a row, passing the output state of the first run as the input to the second. This successfully demonstrated how the message list grew with each run, proving the reducer was working.
+* **Source File:** [lesson_2.ipynb](my_learnings/module_2/lesson_2.ipynb)
