@@ -53,3 +53,8 @@
 * **What I Learned:** I learned how to create a graph that can handle different types of tasks by using multiple state schemas and a router. By defining a `Union` of different `TypedDict` schemas, the graph's state can adapt based on the input.
 * **My Code Tweak:** I built a graph that can either solve simple math problems or answer general questions. I created two states, `MathState` and `GeneralState`, and a router function that checks the user's question for math operators. The graph successfully routed to the correct node based on the input, demonstrating how to handle multiple schemas.
 * **Source File:** [lesson_3.ipynb](my_learnings/module_2/lesson_3.ipynb)
+
+### Lesson 4: Trim and Filter Messages
+* **What I Learned:** I learned how to manage long conversation histories by trimming the messages passed to a node. This is important for preventing context window overflow. I used the `add_messages` reducer to manage the message state and applied a transformation in the `.invoke()` call's `config` to send only a slice of the full message history to the LLM.
+* **My Code Tweak:** I created a graph that accumulates messages. In the final `.invoke()` call, I passed a configuration that used a lambda function (`lambda x: x[-2:]`) to trim the history, ensuring only the last two messages were sent to the LLM node.
+* **Source File:** [lesson_4.ipynb](my_learnings/module_2/lesson_4.ipynb)
