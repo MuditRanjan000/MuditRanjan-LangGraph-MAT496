@@ -58,3 +58,8 @@
 * **What I Learned:** I learned how to manage long conversation histories by trimming the messages passed to a node. This is important for preventing context window overflow. I used the `add_messages` reducer to manage the message state and applied a transformation in the `.invoke()` call's `config` to send only a slice of the full message history to the LLM.
 * **My Code Tweak:** I created a graph that accumulates messages. In the final `.invoke()` call, I passed a configuration that used a lambda function (`lambda x: x[-2:]`) to trim the history, ensuring only the last two messages were sent to the LLM node.
 * **Source File:** [lesson_4.ipynb](my_learnings/module_2/lesson_4.ipynb)
+
+### Lesson 5: Chatbot with Summarization and Memory
+* **What I Learned:** I learned the concept of building a stateful chatbot that manages a long conversation history by summarizing it. This involved using a checkpointer for memory and a conditional router that triggers a summarization node when the conversation exceeds a certain length.
+* **My Code Tweak & Issue:** I attempted to build the summarization chatbot. However, running the code locally resulted in a persistent "Kernel Died" error. This confirms the local environment is unstable and unable to run the course notebooks for this module.
+* **Source File:** All work for this module was attempted in VS Code.
