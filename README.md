@@ -92,3 +92,8 @@
 * **What I Learned:** I learned how to implement dynamic breakpoints, where the graph only pauses if a specific condition is met during execution. This involves adding a flag or condition to the graph's state, using a conditional edge (router) to check that condition, and only routing to a node marked for interruption if the condition is true.
 * **My Code Tweak:** I created a graph where an LLM call sets a `needs_approval` flag in the state based on the response content. A router node checks this flag. If `True`, it routes to a `human_approval` node which is configured to interrupt *after* execution. If `False`, the router routes directly to `END`. I tested both paths, confirming the graph paused only when the flag was set. 
 * **Source File:** [lesson_4.ipynb](my_learnings/module_3/lesson_4.ipynb)
+
+### Lesson 5: Chatbot with Summarization and Memory
+* **What I Learned:** I learned the concept of building a stateful chatbot that manages a long conversation history by summarizing it. This involved using a checkpointer for memory and a conditional router that triggers a summarization node when the conversation exceeds a certain length.
+* **My Code Tweak & Issue:** I attempted to build the summarization chatbot. However, running the code locally resulted in a persistent `AttributeError: 'GeneratorContextManager' object has no attribute 'get_next_version'`. This error indicates that the installed version of `langgraph` is incompatible with the checkpointer features used in the lesson.
+* **Source File:** [lesson_5.ipynb](my_learnings/module_2/lesson_5.ipynb)
