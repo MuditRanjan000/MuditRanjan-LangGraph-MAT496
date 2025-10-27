@@ -82,3 +82,8 @@
 * **What I Learned:** I learned how to use breakpoints to pause and resume graph execution. This is done by specifying nodes where interrupts can occur when compiling the graph (`interrupt_before` or `interrupt_after`). The graph's state is saved at the breakpoint using the checkpointer, and execution can be resumed later by invoking the graph again with the same configuration (thread ID).
 * **My Code Tweak:** I created a simple graph with an LLM node followed by a node that pauses for a few seconds. I compiled the graph with `interrupt_before=["pause"]`. I invoked the graph once, which ran the LLM and paused. I then invoked it again with `None` as input but the same config, which successfully resumed execution from the breakpoint and completed the graph.
 * **Source File:** [lesson_2.ipynb](my_learnings/module_3/lesson_2.ipynb)
+
+### Lesson 3: Editing State and Human Feedback
+* **What I Learned:** I learned how to modify the state of a graph while it is paused at a breakpoint. This involves using `app.get_state(config)` to retrieve the current state, making changes to the state dictionary, and then using `app.update_state(config, new_state)` to save the modifications back to the checkpointer before resuming execution.
+* **My Code Tweak:** I created a graph that generates a poem and then pauses for approval. After the pause, I simulated human feedback by getting the current state, adding a new `HumanMessage` with a correction to the `messages` list, and updating the state using `app.update_state()`. Resuming the graph finished the execution with the modified state, demonstrating how human-in-the-loop corrections can be incorporated.
+* **Source File:** [lesson_3.ipynb](my_learnings/module_3/lesson_3.ipynb)
