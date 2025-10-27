@@ -87,3 +87,8 @@
 * **What I Learned:** I learned how to modify the state of a graph while it is paused at a breakpoint. This involves using `app.get_state(config)` to retrieve the current state, making changes to the state dictionary, and then using `app.update_state(config, new_state)` to save the modifications back to the checkpointer before resuming execution.
 * **My Code Tweak:** I created a graph that generates a poem and then pauses for approval. After the pause, I simulated human feedback by getting the current state, adding a new `HumanMessage` with a correction to the `messages` list, and updating the state using `app.update_state()`. Resuming the graph finished the execution with the modified state, demonstrating how human-in-the-loop corrections can be incorporated.
 * **Source File:** [lesson_3.ipynb](my_learnings/module_3/lesson_3.ipynb)
+
+### Lesson 4: Dynamic Breakpoints
+* **What I Learned:** I learned how to implement dynamic breakpoints, where the graph only pauses if a specific condition is met during execution. This involves adding a flag or condition to the graph's state, using a conditional edge (router) to check that condition, and only routing to a node marked for interruption if the condition is true.
+* **My Code Tweak:** I created a graph where an LLM call sets a `needs_approval` flag in the state based on the response content. A router node checks this flag. If `True`, it routes to a `human_approval` node which is configured to interrupt *after* execution. If `False`, the router routes directly to `END`. I tested both paths, confirming the graph paused only when the flag was set. 
+* **Source File:** [lesson_4.ipynb](my_learnings/module_3/lesson_4.ipynb)
