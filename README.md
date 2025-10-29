@@ -97,3 +97,13 @@
 * **What I Learned:** I learned the concept of building a stateful chatbot that manages a long conversation history by summarizing it. This involved using a checkpointer for memory and a conditional router that triggers a summarization node when the conversation exceeds a certain length.
 * **My Code Tweak & Issue:** I attempted to build the summarization chatbot. However, running the code locally resulted in a persistent `AttributeError: 'GeneratorContextManager' object has no attribute 'get_next_version'`. This error indicates that the installed version of `langgraph` is incompatible with the checkpointer features used in the lesson.
 * **Source File:** [lesson_5.ipynb](my_learnings/module_2/lesson_5.ipynb)
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+### MODULE 4
+
+### Lesson 1: Parallelization
+* **What I Learned:** I learned how to run multiple nodes in a LangGraph graph concurrently (in parallel). This is achieved by adding multiple edges originating from the same starting point (like `START` or another node). LangGraph automatically waits for all parallel branches to complete before proceeding. Wrapping the node functions in `RunnableLambda` is helpful for this pattern.
+* **My Code Tweak:** I built a graph where two different "expert" LLM nodes answered the same question simultaneously, one concisely and one with more detail. The graph successfully executed both branches in parallel and returned the results from both experts.
+* **Source File:** [lesson_1.ipynb](my_learnings/module_4/lesson_1.ipynb)
+
