@@ -116,3 +116,8 @@
 * **What I Learned:** I learned how to implement the MapReduce pattern in LangGraph. This involves having multiple nodes process data in parallel (the "map" step) and then feeding their combined outputs into a single node that aggregates or summarizes the results (the "reduce" step). LangGraph handles the synchronization, ensuring the reduce step only runs after all map steps are complete.
 * **My Code Tweak:** I built a graph that analyzes the pros and cons of a topic in parallel using two separate LLM nodes. Their outputs (strings added to a list in the state) were then automatically passed to a final "summarize" node, which combined the pro/con analyses into a single summary. I also included code to display the graph's structure.
 * **Source File:** [lesson_3.ipynb](my_learnings/module_4/lesson_3.ipynb)
+
+### Lesson 4: Research Assistant
+* **What I Learned:** I learned how to combine parallel execution (`.map()`) with sequential steps to build a more complex agent, like a research assistant. The graph first plans sub-tasks, then executes them in parallel, and finally aggregates the results to produce a final output.
+* **My Code Tweak:** I built a research agent graph. It starts with a "planner" node that breaks down the main question into sub-questions. Then, a "search_step" node uses `.map()` (implicitly via list comprehension in a lambda) to run a search function in parallel for each sub-question. Finally, a "final_answer_generator" node synthesizes the results. Made the state access safer using `.get()`.
+* **Source File:** [lesson_4.ipynb](my_learnings/module_4/lesson_4.ipynb)
