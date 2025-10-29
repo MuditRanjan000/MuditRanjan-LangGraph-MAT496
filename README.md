@@ -107,3 +107,7 @@
 * **My Code Tweak:** I built a graph where two different "expert" LLM nodes answered the same question simultaneously, one concisely and one with more detail. The graph successfully executed both branches in parallel and returned the results from both experts.
 * **Source File:** [lesson_1.ipynb](my_learnings/module_4/lesson_1.ipynb)
 
+### Lesson 2: Sub-Graphs
+* **What I Learned:** I learned how to create and use sub-graphs within a larger LangGraph workflow. A sub-graph is a compiled `StateGraph` that can be added as a node to another graph. This allows for modular design, making complex agents easier to build and manage.
+* **My Code Tweak:** I created a dedicated sub-graph responsible for handling tool calls (calling an LLM with tools, routing based on tool calls, and executing tools). I then built a main graph that first made a simple LLM call and then invoked this tool-handling sub-graph, demonstrating how to encapsulate and reuse complex logic. I also added code to display a visual representation of the main graph structure within the notebook.
+* **Source File:** [lesson_2.ipynb](my_learnings/module_4/lesson_2.ipynb)
