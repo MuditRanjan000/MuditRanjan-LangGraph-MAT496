@@ -111,3 +111,8 @@
 * **What I Learned:** I learned how to create and use sub-graphs within a larger LangGraph workflow. A sub-graph is a compiled `StateGraph` that can be added as a node to another graph. This allows for modular design, making complex agents easier to build and manage.
 * **My Code Tweak:** I created a dedicated sub-graph responsible for handling tool calls (calling an LLM with tools, routing based on tool calls, and executing tools). I then built a main graph that first made a simple LLM call and then invoked this tool-handling sub-graph, demonstrating how to encapsulate and reuse complex logic. I also added code to display a visual representation of the main graph structure within the notebook.
 * **Source File:** [lesson_2.ipynb](my_learnings/module_4/lesson_2.ipynb)
+
+### Lesson 3: Map Reduce
+* **What I Learned:** I learned how to implement the MapReduce pattern in LangGraph. This involves having multiple nodes process data in parallel (the "map" step) and then feeding their combined outputs into a single node that aggregates or summarizes the results (the "reduce" step). LangGraph handles the synchronization, ensuring the reduce step only runs after all map steps are complete.
+* **My Code Tweak:** I built a graph that analyzes the pros and cons of a topic in parallel using two separate LLM nodes. Their outputs (strings added to a list in the state) were then automatically passed to a final "summarize" node, which combined the pro/con analyses into a single summary. I also included code to display the graph's structure.
+* **Source File:** [lesson_3.ipynb](my_learnings/module_4/lesson_3.ipynb)
